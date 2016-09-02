@@ -32,4 +32,5 @@ vignettes/*.pdf
 *.utf8.md
 *.knit.md
 .ipynb_checkpoints
-F2 geno pheno with QTL effect.xlsx
+*.xlsx
+

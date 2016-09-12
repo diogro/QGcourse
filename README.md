@@ -3,7 +3,7 @@
 ##Day 1
 
 
-1. [univariate animal model](http://diogro.github.io/QGccourse/tutorials/univariate_animal_model.html)
+1. [univariate animal model](http://diogro.github.io/QGcourse/tutorials/univariate_animal_model.html)
 1. [bivariate animal model](http://diogro.github.io/QGcourse/tutorials/bivariate_animal_model.html)
 
 ### Data files for day 1:

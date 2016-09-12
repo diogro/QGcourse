@@ -1,8 +1,13 @@
 # 2016 Quantitative genetics course tutorials
 
-I promisse to make this page pretty at some point!
-
 ##Day 1
 
-1. [univariate animal model](http://diogro.github.io/GCcourse/tutorial/univariate_animal_model.html)
-1. [bivariate animal model](http://diogro.github.io/GCcourse/tutorial/bivariate_animal_model.html)
+
+1. [univariate animal model](http://diogro.github.io/QGccourse/tutorials/univariate_animal_model.html)
+1. [bivariate animal model](http://diogro.github.io/QGcourse/tutorials/bivariate_animal_model.html)
+
+### Data files for day 1:
+
+1. [Deer pedigree](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/deer.ped)
+2. [Voles data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/voles2.txt)
+3. [Voles pedigree](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/volesPED.txt)

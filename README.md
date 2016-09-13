@@ -13,8 +13,8 @@
 
 ## Day 2
 
-1. [Mapping QTLs in F2 populations]()
-2. [Mapping QTLs in F3 populations]()
+1. [Mapping QTLs in F2 populations](https://github.com/diogro/QGcourse/blob/master/tutorials/F2%20mapping%20tutorial.ipynb)
+2. [Mapping QTLs in F3 populations](https://github.com/diogro/QGcourse/blob/master/tutorials/F3%20mapping%20tutorial.ipynb)
 
 ### Data files for day 2:
 1. [F2 phenotype and marker data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/F2%20geno%20pheno%20with%20QTL%20effect.csv)

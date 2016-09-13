@@ -1,7 +1,6 @@
 # 2016 Quantitative genetics course tutorials
 
-##Day 1
-
+## Day 1
 
 1. [univariate animal model](http://diogro.github.io/QGcourse/tutorials/univariate_animal_model.html)
 1. [bivariate animal model](http://diogro.github.io/QGcourse/tutorials/bivariate_animal_model.html)
@@ -11,3 +10,13 @@
 1. [Deer pedigree](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/deer.ped)
 2. [Voles data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/voles2.txt)
 3. [Voles pedigree](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/volesPED.txt)
+
+## Day 2
+
+1. [Mapping QTLs in F2 populations]()
+2. [Mapping QTLs in F3 populations]()
+
+### Data files for day 2:
+1. [F2 phenotype and marker data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/F2%20geno%20pheno%20with%20QTL%20effect.csv)
+2. [F3 phenotype and marker data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/F3%20geno%20pheno%20with%20QTL%20effect.csv)
+2. [Simulated null markers](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/sim%20genotypes.csv)

@@ -21,6 +21,10 @@
 2. [F3 phenotype and marker data](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/F3%20geno%20pheno%20with%20QTL%20effect.csv)
 2. [Simulated null markers](https://raw.githubusercontent.com/diogro/QGcourse/master/tutorials/sim%20genotypes.csv)
 
+## Day 3 
+
+1. [Multivariate evolution tutorial](https://github.com/diogro/QGcourse/blob/master/tutorials/Multivariate%20Evolution.ipynb)
+
 ## Day 5
 
 [Day five possibilites. Please edit!](https://paper.dropbox.com/doc/Friday-class-possibilities-b9VeKFYaRsOEm3rP3buJk)

@@ -23,7 +23,7 @@
 
 ## Day 3 
 
-1. [Multivariate evolution tutorial](https://github.com/diogro/QGcourse/blob/master/tutorials/Multivariate%20Evolution.ipynb)
+1. [Multivariate evolution tutorial](https://github.com/diogro/QGcourse/blob/master/tutorials/Multivariate%20Evolution.ipynb) Or the same file in [html](http://diogro.github.io/QGcourse/tutorials/Multivariate_Evolution.html).
 
 ## Day 5
 

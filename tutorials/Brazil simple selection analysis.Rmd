@@ -1,0 +1,116 @@
+---
+title: "Brazil selection analysis"
+author: "Alastair Wilson"
+date: "9/15/2016"
+output: html_document
+---
+# Selection on the bivariate (aggression, size) phenotype in voles
+
+We need data on inidvidual fitness, as well as phenotype. This is found as an additional column in the updated data file. Defining and measuring lifetime fitness for an individual is hard. Perhaps the best simple proxy for fitness is the lifetime  number of offspring produced, although really even this is far from perfect if the population growth is non-zero. Regardless, let's assume we have some valid measure of individual fitness here.  
+
+```{r echo=TRUE, message=FALSE, warning=FALSE, eval=FALSE}
+#1. read in the new data file and set soe variables as factors
+volesNEW<-read.table("volesNEW.txt", header=T)
+volesNEW$ID<-as.factor(volesNEW$ID)
+volesNEW$sex<-as.factor(volesNEW$sex)
+volesNEW$SIRE<-as.factor(volesNEW$SIRE)
+volesNEW$DAM<-as.factor(volesNEW$DAM)
+
+#check structure
+str(volesNEW)
+
+```
+
+So we now have a measure of fitness we can use for selection analysis, lets summarise it and look at its distribution
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+
+summary(volesNEW$fitness)
+hist(volesNEW$fitness)
+
+```
+Great- it's basically Guassian, almost like someone simulated it :). Selection is all about relative fitness, so lets create a relative fitness column which we'll call "w" since this is standard notation.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+volesNEW$w<-volesNEW$fitness/mean(volesNEW$fitness)
+```
+
+
+## Selection differentials
+
+The S in the univariate breeders equation is the **selection differential**. We can obtain this simply as the covariance between the trait and fitness.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+S_size<-cov(volesNEW$w, volesNEW$size)
+S_size
+
+S_agg<-cov(volesNEW$w, volesNEW$aggression)
+S_agg
+
+```
+There isn't a quick R function to test significance of these covariances (it can be done of course), but we could test the corresponding correlations easily.
+
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+cor.test(volesNEW$w, volesNEW$size)          #
+cor.test(volesNEW$w, volesNEW$aggression)    #
+
+```
+What do **you** conclude is going on?
+
+
+## Linear selection gradients
+
+We already know these two traits covary - if you haven't done the bivariate animal model tutorial then convince yourslef this is true now by fitting a simple regression model.
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+mod_regress<-lm(aggression~size data=volesNEW)          
+summary(mod_regress)
+plot(volesNEW$size,volesNEW$aggression)               
+abline(mod_regress)
+
+```
+
+To look at linear selection on both traits simultaneously we can use a linear model (simple multiple regression) to estimate and test the selection gradients. These **are the partial regression coefficients of traits on relative fitness**
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+linear_sel<-lm(w~size+ aggression, data=volesNEW)
+summary(linear_sel)
+```
+What do you conclude now. If we wanted to report these selection gradients  in a way that was comparable across studies we could turn them into  **STANDARDIZED SELECTION GRADIENTS** these are the partial regression coefficients you get if you put the traits into standard deviation units. Lets do it...
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+volesNEW$sizeSD<-volesNEW$size/sd(volesNEW$size)
+volesNEW$aggressionSD<-volesNEW$aggression/sd(volesNEW$aggression)   #define variables in SDUs
+
+linear_sel_SD<-lm(w~sizeSD+ aggressionSD, data=volesNEW)     #then refit the model
+summary(linear_sel_SD)
+
+```
+
+Note that this is the same model, we've just scaled variables differently, so the effect sizes will change but the conclusions will not! From this simple multiple regression we get the vector **beta** of *linear selection gradients*. We could combine an estimate of the G matrix to predict the change in bivaariate mean either in observed trait units or in standard deviation units. 
+
+## What about non-linear selection?
+We can expand the model to look for non-linear selection by adding a) quadratic effects of each trait on fitness and b) an interaction between the two traits. Below is using the observed trait scaling again, but you could use standard deviation units instead if you prefer. 
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+nonlinear_sel<-lm(w~size+aggression+I(size*size)+I(aggression*aggression)+I(size*aggression), data=volesNEW)
+summary(nonlinear_sel)
+
+```
+
+Lots is significant here, so what does it mean? **Can you interpret this?**
+
+It can be helpful to plot the  fitness surface being described by this model. How does (predicted) fitness change with combinations of the  
+two traits?
+
+```{r echo=TRUE, message=FALSE, warning=FALSE,eval=FALSE}
+#plot predicted fitness surface
+contour(nonlinear_sel, size ~ aggression, image=T,  labcex=1, nlevels=30) #zlim=c(0,5) #use this to get rid of areas where w<0 predicted
+
+```
+
+
+
+
+

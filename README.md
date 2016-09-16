@@ -27,4 +27,6 @@
 
 ## Day 5
 
+1. [Simple selection estimation](http://diogro.github.io/QGcourse/tutorials/Brazil_simple_selection_analysis.html)
+
 [Day five possibilites. Please edit!](https://paper.dropbox.com/doc/Friday-class-possibilities-b9VeKFYaRsOEm3rP3buJk)
